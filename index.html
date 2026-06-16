@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FERRA — Coming Soon</title>
+<meta name="description" content="FERRA — something is being forged. A new collection is on the way.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #1a1a1a;
+    --fg: #ffffff;
+    --muted: #8a8a8a;
+    --line: #2e2e2e;
+  }
+
+  html, body { min-height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 24px;
+  }
+
+  .wordmark {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    color: #ffffff;
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .hero {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+
+  h1.headline {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 200;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: #ffffff;
+    margin-bottom: 24px;
+  }
+
+  .lede {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 56px;
+  }
+
+  .divider {
+    width: 32px;
+    height: 1px;
+    background: var(--line);
+    margin: 0 auto 48px;
+  }
+
+  .form-block { max-width: 440px; margin: 0 auto; }
+
+  .form-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .form-row {
+    display: flex;
+    border: 1px solid var(--line);
+    background: #161616;
+  }
+  .form-row:focus-within { border-color: #4a4a4a; }
+
+  .form-row input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 16px 18px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  .form-row input::placeholder { color: #555; }
+
+  .form-row button {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 0;
+    padding: 0 28px;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .form-row button:hover:not(:disabled) { background: #e8e8e8; }
+  .form-row button:disabled { opacity: 0.5; cursor: wait; }
+
+  .turnstile-wrap { margin-top: 20px; display: flex; justify-content: center; }
+
+  .form-msg {
+    margin-top: 20px;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    min-height: 14px;
+  }
+  .form-msg.ok { color: #b8b8b8; }
+  .form-msg.err { color: #d8b0b0; }
+
+  .honeypot { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
+
+  footer {
+    padding: 32px 24px 40px;
+    text-align: center;
+  }
+
+  .footstamps {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+
+  .footstamp {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #6a6a6a;
+    padding: 6px 0;
+  }
+
+  .footstamp a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footstamp a:hover { color: #ffffff; }
+
+  .footer-meta {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #4a4a4a;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 32px 20px 20px; }
+    main { padding: 32px 20px; }
+    .form-row { flex-direction: column; }
+    .form-row button { padding: 16px 20px; border-top: 1px solid var(--line); }
+    .footstamps { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="wordmark" aria-label="FERRA home">FERRA</a>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="eyebrow">Coming Soon</div>
+        <h1 class="headline">Something is being forged.</h1>
+        <p class="lede">A new collection is on the way. Leave your email and we will let you know the moment it is ready.</p>
+
+        <div class="divider"></div>
+
+        <div class="form-block">
+          <label class="form-label" for="email">Be the first to know</label>
+          <form id="sub-form" novalidate>
+            <div class="honeypot" aria-hidden="true">
+              <label>Leave blank<input type="text" name="company" tabindex="-1" autocomplete="off"></label>
+            </div>
+            <div class="form-row">
+              <input id="email" name="email" type="email" required placeholder="your@email.com" autocomplete="email">
+              <button type="submit" id="sub-btn">Notify Me</button>
+            </div>
+            <div class="turnstile-wrap">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAADg7QL-qwrJ1qOi2" data-theme="dark" data-size="flexible"></div>
+            </div>
+            <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footstamps">
+        <span class="footstamp">Est. 2026</span>
+        <span class="footstamp"><a href="/">ferra.es</a></span>
+        <span class="footstamp"><a href="/privacy">Privacy</a></span>
+        <span class="footstamp"><a href="/terms">Terms</a></span>
+        <span class="footstamp"><a href="mailto:admin@ferra.es">Contact</a></span>
+      </div>
+      <div class="footer-meta">Await the unveiling</div>
+    </footer>
+  </div>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script>
+    (function () {
+      const form = document.getElementById('sub-form');
+      const btn = document.getElementById('sub-btn');
+      const msg = document.getElementById('form-msg');
+      const emailInput = document.getElementById('email');
+
+      function setMsg(text, kind) {
+        msg.textContent = text;
+        msg.className = 'form-msg ' + (kind || '');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (btn.disabled) return;
+
+        const hp = form.querySelector('input[name="company"]');
+        if (hp && hp.value) { setMsg('Submission rejected.', 'err'); return; }
+
+        const email = (emailInput.value || '').trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          setMsg('Enter a valid email.', 'err');
+          return;
+        }
+
+        const tsInput = form.querySelector('[name="cf-turnstile-response"]');
+        const token = tsInput ? tsInput.value : '';
+        if (!token) { setMsg('Complete the captcha.', 'err'); return; }
+
+        btn.disabled = true;
+        const originalLabel = btn.textContent;
+        btn.textContent = 'Sending\u2026';
+        setMsg('', '');
+
+        try {
+          const res = await fetch('/api/subscribe', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email, turnstileToken: token }),
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (res.ok && data.ok) {
+            form.innerHTML = '<div class="form-msg ok">You are on the list.</div>';
+            return;
+          }
+          if (data.error === 'duplicate') {
+            setMsg('Already on the list.', 'ok');
+          } else if (data.error === 'turnstile') {
+            setMsg('Captcha failed. Retry.', 'err');
+          } else if (data.error === 'invalid_email') {
+            setMsg('Invalid email.', 'err');
+          } else {
+            setMsg('Something went wrong.', 'err');
+          }
+        } catch (err) {
+          setMsg('Network error.', 'err');
+        } finally {
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
