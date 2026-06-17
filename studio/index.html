@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ferra Content Studio</title>
+  <meta name="description" content="Ferra Content Studio is the internal content tool of the Ferra brand. We use it to plan, schedule and publish our own short-form videos (Reels and YouTube Shorts) to our own social media accounts, and to read the performance of our own posts so we can improve our content over time.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ferra.es/studio">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #1a1a1a;
+      --fg: #ffffff;
+      --muted: #8a8a8a;
+      --line: #2e2e2e;
+      --accent: #f5f5f5;
+    }
+
+    html, body { min-height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { opacity: 0.7; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
+      color: #ffffff;
+    }
+
+    main {
+      flex: 1;
+      padding: 64px 24px 80px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 56px);
+      font-weight: 200;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #ffffff;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #e8e8e8;
+      margin-bottom: 20px;
+    }
+
+    ul.scopes {
+      list-style: none;
+      margin-bottom: 20px;
+      padding-left: 0;
+    }
+
+    ul.scopes li {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #e8e8e8;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    ul.scopes li:last-child { border-bottom: none; }
+
+    ul.scopes code {
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+
+    ul.scopes strong { font-weight: 500; color: #ffffff; }
+
+    .privacy-cta {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .privacy-cta a { color: #ffffff; }
+
+    footer {
+      padding: 32px 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="/" class="wordmark" style="text-decoration:none">FERRA</a>
+    </header>
+
+    <main>
+      <article class="container">
+        <p class="eyebrow">Application home page</p>
+
+        <h1>Ferra Content Studio</h1>
+
+        <p>
+          Ferra Content Studio is the internal content tool of the Ferra brand. We use it to plan, schedule and publish our own short-form videos (Reels and YouTube Shorts) to our own social media accounts, and to read the performance of our own posts so we can improve our content over time.
+        </p>
+
+        <h2>How it uses Google services</h2>
+
+        <p>
+          With the account owner's permission, the app connects to our own Google and YouTube account and uses:
+        </p>
+
+        <ul class="scopes">
+          <li><strong>YouTube Data API &ndash; upload</strong> <code>auth/youtube.upload</code><br>To upload our own videos to our own YouTube channel.</li>
+          <li><strong>YouTube &ndash; read access</strong> <code>auth/youtube.readonly</code><br>To read our own channel and video statistics.</li>
+          <li><strong>Google Drive</strong> <code>auth/drive</code><br>To detect the new video files we place in our own Drive folder so they can be published.</li>
+        </ul>
+
+        <p>
+          The application only accesses our own accounts and data. It does not access other users' data, and it does not sell or share any data with third parties. For questions or data-deletion requests, contact <a href="mailto:admin@ferra.es">admin@ferra.es</a>.
+        </p>
+
+        <p class="privacy-cta">
+          Read our <a href="/privacy">Privacy Policy</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      &copy; Ferra
+    </footer>
+  </div>
+</body>
+</html>
